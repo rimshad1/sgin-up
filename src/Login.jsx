@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext } from "./Contexts/LoginContext";
 
 const Login = () => {
-  const { email, setEmail, pass, setPass } = useContext(LoginContext);
+  const { name, setName, email, setEmail, pass, setPass } =
+    useContext(LoginContext);
 
   const navigate = useNavigate();
 
@@ -11,13 +12,14 @@ const Login = () => {
 
   const formSubmit = (e) => {
     var data = {
-      email: email.split("@"),
+      name: name,
+      email: email,
       pass: pass,
     };
 
     e.preventDefault();
-    if (!email || !pass)
-      return seterrorMessage("Please use Both Creddential to Login");
+    if (!name || !email || !pass)
+      return seterrorMessage("Please use the Creddential to Login");
 
     localStorage.setItem("user", [JSON.stringify(data)]);
 
@@ -35,6 +37,19 @@ const Login = () => {
               {errorMessage?.length > 0 && (
                 <div className="text-red-500 mb-5">{errorMessage}</div>
               )}
+              <label>
+                Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                className="w-64 px-5 py-2 border text-sm outline-sky-400 rounded-full mb-2"
+                type="text"
+                placeholder="Enter Your Name"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+
               <label>
                 Email <span className="text-red-500">*</span>
               </label>

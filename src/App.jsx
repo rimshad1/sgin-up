@@ -5,13 +5,16 @@ import { LoginContext } from "./Contexts/LoginContext";
 import React, { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
   return (
     <>
       <BrowserRouter>
-        <LoginContext.Provider value={{ email, setEmail, pass, setPass }}>
+        <LoginContext.Provider
+          value={{ name, setName, email, setEmail, pass, setPass }}
+        >
           <Routes>
             <Route exact path="/dashboard" Component={Dashboard} />
             <Route exact path="/" Component={Login} />

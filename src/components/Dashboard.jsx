@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import { LoginContext } from "../Contexts/LoginContext";
 
 const Dashboard = () => {
-  const { email } = useContext(LoginContext);
+  const { name } = useContext(LoginContext);
 
   return (
     <>
@@ -15,7 +15,7 @@ const Dashboard = () => {
 
             <div className="flex space-x-8">
               <div className=" w-56 h-[150px] border border-gray-400 rounded flex flex-col justify-center p-4 mt-5 text-gray-600">
-                <span>user {email}</span>
+                <span>user {name}</span>
               </div>
             </div>
           </div>
