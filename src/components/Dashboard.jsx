@@ -15,7 +15,7 @@ const Dashboard = () => {
 
             <div className="flex space-x-8">
               <div className=" w-56 h-[150px] border border-gray-400 rounded flex flex-col justify-center p-4 mt-5 text-gray-600">
-                <span>user {name}</span>
+                <span>User Name is: {name}</span>
               </div>
             </div>
           </div>
